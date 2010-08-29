@@ -1,11 +1,8 @@
-function Pingo(x,y,canvasMae){
+function Pingo(x,y){
 	var x = x;
 	var y = y;
-	var canvasMae = canvasMae;
 	var raio = 0;
 	var cor = randomizar_cor();
-	var id = canvasMae.getIndicePingos();
-	canvasMae.incrementarIndicePingos();
 	
 	setInterval(crescer,10);
 	
@@ -25,23 +22,15 @@ function Pingo(x,y,canvasMae){
 		return cor;
 	}
 	
+	this.se_desenhar_no = function(context){
+		context.strokeStyle = cor;
+		context.beginPath();
+		context.arc(x,y,raio,0,Math.PI*2,true);
+		context.stroke();
+		context.closePath();
+	}
+	
 	function crescer(){
 		raio += 5;
-	}
-	
-	this.getX = function(){
-		return x;
-	}
-	
-	this.getY = function(){
-		return y;
-	}
-	
-	this.getRaio = function(){
-		return raio;
-	}
-	
-	this.getCor = function(){
-		return cor;
 	}
 }
