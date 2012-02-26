@@ -6,7 +6,7 @@ function Canvas(id){
 	context.lineWidth = 4;
 	
 	this.pingar = function(x,y){
-		pingos.push(new Pingo(x,y,this));
+		pingos.push(new Pingo(x-elem.offsetLeft,y-elem.offsetTop,this));
 	}
 	
 	this.atualizar = function(){
