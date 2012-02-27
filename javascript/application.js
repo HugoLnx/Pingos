@@ -1,11 +1,16 @@
 var canvas;
+var firstClick;
 
 function init(){
 	canvas = new Canvas('pingos');
-	setInterval(atualizar,10);
+  firstClick = true;
 }
 
 function onCanvasClick(e){
+  if (firstClick) {
+	  setInterval(atualizar,10);
+    firstClick = false;
+  }
 	canvas.pingar(e.pageX,e.pageY);
 }
 

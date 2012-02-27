@@ -4,6 +4,20 @@ function Canvas(id){
 	elem.onclick = onCanvasClick;
 	var context = elem.getContext('2d');
 	context.lineWidth = 4;
+
+  function desenharTextoInformativo(){
+		context.beginPath();context.closePath();
+    context.save();
+    context.font = '30px arial';
+    context.fillStyle = "rgba(255,255,255,0.1)";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    var text = "< Click Here >";
+    context.fillText(text,(elem.width/2),(elem.height/2));
+    context.fill();
+    context.restore();
+  }
+  desenharTextoInformativo();
 	
 	this.pingar = function(x,y){
 		pingos.push(new Pingo(x,y,this));
